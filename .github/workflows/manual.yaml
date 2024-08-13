@@ -10,9 +10,9 @@ on:
         default: '3.7'
         type: choice
         options:
-        - 3.7
-        - 3.8
-        - 3.9
+        - '3.7'
+        - '3.8'
+        - '3.9'
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-          python-version: ${{ github.event.inputs.python-version }}
+          python-version: ['${{ github.event.inputs.python-version }}']
 
     steps:
     - name: Checkout code
