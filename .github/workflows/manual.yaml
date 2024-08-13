@@ -10,18 +10,17 @@ on:
         default: '3.7'
         type: choice
         options:
-        - 3.7
-        - 3.8
-        - 3.9
+          - '3.7'
+          - '3.8'
+          - '3.9'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        python-version: ${{ github.event.inputs.python-version }}
+        python-version: ['${{ github.event.inputs.python-version }}']
 
     steps:
     - name: Checkout code
@@ -37,7 +36,6 @@ jobs:
         cd chapter4
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
 
     - name: Run tests
       run: |
